@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Download, Github, Info } from "lucide-react"
+import { Github, Info } from "lucide-react"
 
 export function Header() {
   return (
@@ -15,14 +15,18 @@ export function Header() {
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm">
-              <Info className="w-4 h-4 mr-2" />
-              About
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://www.suzanailic.com/products" target="_blank" rel="noopener noreferrer">
+                <Info className="w-4 h-4 mr-2" />
+                About
+              </a>
             </Button>
-            
-            <Button variant="outline" size="sm">
-              <Github className="w-4 h-4 mr-2" />
-              Source
+
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://github.com/suzana-ilic/v0-language-families" target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4 mr-2" />
+                Source
+              </a>
             </Button>
           </div>
         </div>
