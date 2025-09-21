@@ -86,7 +86,7 @@ export function Sidebar({ onFamilyClick }: { onFamilyClick?: (familyName: string
         {expandedSections.has("stats") && (
           <CardContent className="space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground font-[family-name:var(--font-dm-sans)]">
+              <span className="text-sm font-[family-name:var(--font-dm-sans)] text-primary-foreground">
                 Total Languages
               </span>
               <Badge variant="outline" className="text-white font-medium">
@@ -94,7 +94,7 @@ export function Sidebar({ onFamilyClick }: { onFamilyClick?: (familyName: string
               </Badge>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground font-[family-name:var(--font-dm-sans)]">
+              <span className="text-sm font-[family-name:var(--font-dm-sans)] text-primary-foreground">
                 Language Families
               </span>
               <Badge variant="outline" className="text-white font-medium">
@@ -102,7 +102,7 @@ export function Sidebar({ onFamilyClick }: { onFamilyClick?: (familyName: string
               </Badge>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground font-[family-name:var(--font-dm-sans)]">
+              <span className="text-sm font-[family-name:var(--font-dm-sans)] text-primary-foreground">
                 Living Languages
               </span>
               <Badge variant="outline" className="text-emerald-400 font-medium">
@@ -110,7 +110,7 @@ export function Sidebar({ onFamilyClick }: { onFamilyClick?: (familyName: string
               </Badge>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground font-[family-name:var(--font-dm-sans)]">
+              <span className="text-sm font-[family-name:var(--font-dm-sans)] text-primary-foreground">
                 Extinct Languages
               </span>
               <Badge variant="outline" className="text-red-400 font-medium">
@@ -118,13 +118,11 @@ export function Sidebar({ onFamilyClick }: { onFamilyClick?: (familyName: string
               </Badge>
             </div>
             <div className="border-t border-border pt-3 mt-3">
-              <div className="text-sm text-muted-foreground mb-2">Largest Family:</div>
-              <div className="text-cyan-400 font-medium">{largestFamily[0]}</div>
-              <div className="text-xs text-muted-foreground">{largestFamily[1]} languages</div>
+              <div className="text-sm mb-2 text-sidebar-accent">Largest Family:</div>
+              <div className="font-medium text-primary-foreground">{largestFamily[0]}</div>
+              <div className="text-xs text-muted">{largestFamily[1]} languages</div>
             </div>
-            <div className="text-xs text-muted-foreground">
-              Survival Rate: {Math.round((stats.livingLanguages / stats.totalLanguages) * 100)}%
-            </div>
+            
           </CardContent>
         )}
       </Card>

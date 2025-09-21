@@ -127,15 +127,25 @@ export function LanguageTree({ focusFamily }: { focusFamily?: string }) {
     root.x0 = 0
     root.y0 = 0
 
-    function collapseDeep(d: D3Node, depth = 0) {
-      if (depth >= 3 && d.children) {
-        d._children = d.children as D3Node[]
-        d.children = null
+    root.children?.forEach((child: D3Node) => {
+      if (child.data.name === "Indo-European") {
+        // Keep Indo-European expanded but collapse its deeper levels
+        function collapseDeep(d: D3Node, depth = 0) {
+          if (depth >= 2 && d.children) {
+            d._children = d.children as D3Node[]
+            d.children = null
+          }
+          ;(d.children || d._children || []).forEach((child: D3Node) => collapseDeep(child, depth + 1))
+        }
+        collapseDeep(child)
+      } else {
+        // Collapse all other language families completely
+        if (child.children) {
+          child._children = child.children as D3Node[]
+          child.children = null
+        }
       }
-      ;(d.children || d._children || []).forEach((child: D3Node) => collapseDeep(child, depth + 1))
-    }
-
-    root.children?.forEach((child: D3Node) => collapseDeep(child))
+    })
 
     const dx = 25
     const dy = 180
