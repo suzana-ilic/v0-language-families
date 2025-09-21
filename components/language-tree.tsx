@@ -45,6 +45,40 @@ export function LanguageTree({ focusFamily }: { focusFamily?: string }) {
   const zoomBehaviorRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null)
   const rootRef = useRef<D3Node | null>(null)
 
+  const handleZoomIn = () => {
+    if (!svgRef.current || !zoomBehaviorRef.current) return
+    const svg = d3.select(svgRef.current)
+    svg.transition().duration(300).call(zoomBehaviorRef.current.scaleBy, 1.5)
+  }
+
+  const handleZoomOut = () => {
+    if (!svgRef.current || !zoomBehaviorRef.current) return
+    const svg = d3.select(svgRef.current)
+    svg
+      .transition()
+      .duration(300)
+      .call(zoomBehaviorRef.current.scaleBy, 1 / 1.5)
+  }
+
+  const handleResetView = () => {
+    if (!svgRef.current || !zoomBehaviorRef.current) return
+    const svg = d3.select(svgRef.current)
+    const bounds = svg.select("g").node()?.getBBox()
+    if (bounds) {
+      const width = svgRef.current.clientWidth
+      const height = svgRef.current.clientHeight
+      const scale = Math.min(width / bounds.width, height / bounds.height) * 0.9
+      const translate = [
+        width / 2 - scale * (bounds.x + bounds.width / 2),
+        height / 2 - scale * (bounds.y + bounds.height / 2),
+      ]
+      svg
+        .transition()
+        .duration(750)
+        .call(zoomBehaviorRef.current.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale))
+    }
+  }
+
   const zoomToFamily = (familyName: string) => {
     if (!rootRef.current || !svgRef.current || !zoomBehaviorRef.current) return
 
@@ -148,7 +182,7 @@ export function LanguageTree({ focusFamily }: { focusFamily?: string }) {
     })
 
     const dx = 25
-    const dy = 180
+    const dy = 250
     const treeLayout = d3.cluster<LanguageNode>().nodeSize([dx, dy])
 
     let i = 0
@@ -332,6 +366,46 @@ export function LanguageTree({ focusFamily }: { focusFamily?: string }) {
     <div className="relative w-full h-[calc(100vh-200px)]">
       <Card className="w-full h-full p-4 bg-slate-950 border-slate-800">
         <svg ref={svgRef} className="w-full h-full" style={{ background: "transparent" }} />
+
+        <div className="absolute top-6 right-6 flex flex-col gap-2 z-10">
+          <button
+            onClick={handleZoomIn}
+            className="w-10 h-10 bg-slate-800/90 hover:bg-slate-700 border border-slate-600 rounded-lg flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+            title="Zoom In"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+              <line x1="11" y1="8" x2="11" y2="14" />
+              <line x1="8" y1="11" x2="14" y2="11" />
+            </svg>
+          </button>
+
+          <button
+            onClick={handleZoomOut}
+            className="w-10 h-10 bg-slate-800/90 hover:bg-slate-700 border border-slate-600 rounded-lg flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+            title="Zoom Out"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+              <line x1="8" y1="11" x2="14" y2="11" />
+            </svg>
+          </button>
+
+          <button
+            onClick={handleResetView}
+            className="w-10 h-10 bg-slate-800/90 hover:bg-slate-700 border border-slate-600 rounded-lg flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+            title="Reset View"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+              <path d="M21 3v5h-5" />
+              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+              <path d="M3 21v-5h5" />
+            </svg>
+          </button>
+        </div>
       </Card>
 
       <div
