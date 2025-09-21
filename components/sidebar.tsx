@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronRight, ChevronDown, Languages, Globe, BarChart3 } from "lucide-react"
 import { calculateLanguageStatistics } from "./language-tree"
 
-export function Sidebar() {
+export function Sidebar({ onFamilyClick }: { onFamilyClick?: (familyName: string) => void }) {
   const [selectedFamily, setSelectedFamily] = useState<string | null>(null)
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(["families", "stats", "legend"]))
 
@@ -21,7 +21,7 @@ export function Sidebar() {
     .map((entry, index) => ({
       name: entry[0],
       count: entry[1],
-      color: `bg-chart-${(index % 5) + 1}` as const,
+      color: `bg-emerald-500` as const,
     }))
     .sort((a, b) => b.count - a.count) // Sort by count descending
 
@@ -50,7 +50,10 @@ export function Sidebar() {
               key={family.name}
               variant={selectedFamily === family.name ? "secondary" : "ghost"}
               className="w-full justify-between h-auto p-3"
-              onClick={() => setSelectedFamily(selectedFamily === family.name ? null : family.name)}
+              onClick={() => {
+                setSelectedFamily(selectedFamily === family.name ? null : family.name)
+                onFamilyClick?.(family.name)
+              }}
             >
               <div className="flex items-center gap-3 flex-1 min-w-0">
                 <div className={`w-3 h-3 rounded-full ${family.color} flex-shrink-0`} />

@@ -34,11 +34,67 @@ function isLanguage(node: D3Node): boolean {
   return !node.children && !node._children
 }
 
-export function LanguageTree() {
+function update(source: D3Node) {
+  // Function to update the tree layout and rendering
+}
+
+export function LanguageTree({ focusFamily }: { focusFamily?: string }) {
   const svgRef = useRef<SVGSVGElement>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
   const [selectedNode, setSelectedNode] = useState<LanguageNode | null>(null)
   const zoomBehaviorRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null)
+  const rootRef = useRef<D3Node | null>(null)
+
+  const zoomToFamily = (familyName: string) => {
+    if (!rootRef.current || !svgRef.current || !zoomBehaviorRef.current) return
+
+    const findNode = (node: D3Node): D3Node | null => {
+      if (node.data.name === familyName) return node
+      if (node.children) {
+        for (const child of node.children) {
+          const found = findNode(child as D3Node)
+          if (found) return found
+        }
+      }
+      if (node._children) {
+        for (const child of node._children) {
+          const found = findNode(child as D3Node)
+          if (found) return found
+        }
+      }
+      return null
+    }
+
+    const targetNode = findNode(rootRef.current)
+    if (targetNode) {
+      // Expand the target node if it's collapsed
+      if (targetNode._children) {
+        targetNode.children = targetNode._children
+        targetNode._children = null
+        update(targetNode)
+      }
+
+      // Zoom to the target node
+      setTimeout(() => {
+        const svg = d3.select(svgRef.current!)
+        const scale = 1.5
+        const translate = [
+          svgRef.current!.clientWidth / 2 - scale * targetNode.y!,
+          svgRef.current!.clientHeight / 2 - scale * targetNode.x!,
+        ]
+        svg
+          .transition()
+          .duration(750)
+          .call(zoomBehaviorRef.current!.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale))
+      }, 100)
+    }
+  }
+
+  useEffect(() => {
+    if (focusFamily) {
+      zoomToFamily(focusFamily)
+    }
+  }, [focusFamily])
 
   useEffect(() => {
     if (!svgRef.current) return
@@ -67,6 +123,7 @@ export function LanguageTree() {
     svg.call(zoom)
 
     const root = d3.hierarchy(languageData as LanguageNode) as D3Node
+    rootRef.current = root
     root.x0 = 0
     root.y0 = 0
 
