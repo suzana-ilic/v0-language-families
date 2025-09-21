@@ -1,0 +1,531 @@
+{
+  "name": "Languages of Europe",
+  "children": [
+    {
+      "name": "Indo-European",
+      "proto": "Proto-Indo-European",
+      "children": [
+        {
+          "name": "Germanic",
+          "proto": "Proto-Germanic",
+          "children": [
+            {
+              "name": "West Germanic",
+              "proto": "Proto-West-Germanic",
+              "children": [
+                {
+                  "name": "English"
+                },
+                {
+                  "name": "German"
+                },
+                {
+                  "name": "Dutch"
+                },
+                {
+                  "name": "Frisian"
+                },
+                {
+                  "name": "Yiddish"
+                },
+                {
+                  "name": "Luxembourgish"
+                },
+                {
+                  "name": "Afrikaans",
+                  "note": "Non-European but family member"
+                }
+              ]
+            },
+            {
+              "name": "North Germanic",
+              "proto": "Proto-Norse",
+              "children": [
+                {
+                  "name": "Swedish"
+                },
+                {
+                  "name": "Danish"
+                },
+                {
+                  "name": "Norwegian Bokmål"
+                },
+                {
+                  "name": "Norwegian Nynorsk"
+                },
+                {
+                  "name": "Icelandic"
+                },
+                {
+                  "name": "Faroese"
+                }
+              ]
+            },
+            {
+              "name": "East Germanic",
+              "proto": "Gothic (attested)",
+              "children": [
+                {
+                  "name": "Gothic",
+                  "status": "extinct"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Romance",
+          "proto": "Vulgar Latin ← Latin ← Proto-Italic",
+          "children": [
+            {
+              "name": "Spanish"
+            },
+            {
+              "name": "Portuguese"
+            },
+            {
+              "name": "French"
+            },
+            {
+              "name": "Italian"
+            },
+            {
+              "name": "Romanian"
+            },
+            {
+              "name": "Catalan"
+            },
+            {
+              "name": "Occitan"
+            },
+            {
+              "name": "Galician"
+            },
+            {
+              "name": "Sardinian"
+            },
+            {
+              "name": "Romansh"
+            }
+          ]
+        },
+        {
+          "name": "Slavic",
+          "proto": "Proto-Slavic ← Proto-Balto-Slavic",
+          "children": [
+            {
+              "name": "East Slavic",
+              "children": [
+                {
+                  "name": "Russian"
+                },
+                {
+                  "name": "Ukrainian"
+                },
+                {
+                  "name": "Belarusian"
+                }
+              ]
+            },
+            {
+              "name": "West Slavic",
+              "children": [
+                {
+                  "name": "Polish"
+                },
+                {
+                  "name": "Czech"
+                },
+                {
+                  "name": "Slovak"
+                },
+                {
+                  "name": "Upper Sorbian"
+                },
+                {
+                  "name": "Lower Sorbian"
+                }
+              ]
+            },
+            {
+              "name": "South Slavic",
+              "children": [
+                {
+                  "name": "Serbian"
+                },
+                {
+                  "name": "Croatian"
+                },
+                {
+                  "name": "Bosnian"
+                },
+                {
+                  "name": "Montenegrin"
+                },
+                {
+                  "name": "Slovene"
+                },
+                {
+                  "name": "Bulgarian"
+                },
+                {
+                  "name": "Macedonian"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Baltic",
+          "proto": "Proto-Baltic ← Proto-Balto-Slavic",
+          "children": [
+            {
+              "name": "Lithuanian"
+            },
+            {
+              "name": "Latvian"
+            },
+            {
+              "name": "Old Prussian",
+              "status": "extinct"
+            }
+          ]
+        },
+        {
+          "name": "Celtic",
+          "proto": "Proto-Celtic",
+          "children": [
+            {
+              "name": "Goidelic",
+              "children": [
+                {
+                  "name": "Irish"
+                },
+                {
+                  "name": "Scottish Gaelic"
+                },
+                {
+                  "name": "Manx"
+                }
+              ]
+            },
+            {
+              "name": "Brittonic",
+              "children": [
+                {
+                  "name": "Welsh"
+                },
+                {
+                  "name": "Breton"
+                },
+                {
+                  "name": "Cornish"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hellenic",
+          "proto": "Ancient Greek ← Proto-Hellenic",
+          "children": [
+            {
+              "name": "Greek"
+            }
+          ]
+        },
+        {
+          "name": "Albanian",
+          "proto": "Proto-Albanian",
+          "children": [
+            {
+              "name": "Albanian (Gheg)"
+            },
+            {
+              "name": "Albanian (Tosk, incl. Standard)"
+            }
+          ]
+        },
+        {
+          "name": "Armenian",
+          "proto": "Proto-Armenian",
+          "children": [
+            {
+              "name": "Eastern Armenian"
+            },
+            {
+              "name": "Western Armenian"
+            }
+          ]
+        },
+        {
+          "name": "Indo-Aryan (in Europe)",
+          "proto": "Proto-Indo-Aryan ← Proto-Indo-Iranian",
+          "children": [
+            {
+              "name": "Romani"
+            }
+          ]
+        },
+        {
+          "name": "Iranian (in Europe)",
+          "proto": "Proto-Iranian ← Proto-Indo-Iranian",
+          "children": [
+            {
+              "name": "Ossetian"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uralic",
+      "proto": "Proto-Uralic",
+      "children": [
+        {
+          "name": "Finnic",
+          "proto": "Proto-Finnic",
+          "children": [
+            {
+              "name": "Finnish"
+            },
+            {
+              "name": "Estonian"
+            },
+            {
+              "name": "Karelian"
+            },
+            {
+              "name": "Võro"
+            }
+          ]
+        },
+        {
+          "name": "Sami",
+          "proto": "Proto-Sami",
+          "children": [
+            {
+              "name": "Northern Sami"
+            },
+            {
+              "name": "Lule Sami"
+            },
+            {
+              "name": "Inari Sami"
+            },
+            {
+              "name": "Skolt Sami"
+            }
+          ]
+        },
+        {
+          "name": "Ugric",
+          "proto": "Proto-Ugric",
+          "children": [
+            {
+              "name": "Hungarian"
+            },
+            {
+              "name": "Khanty",
+              "note": "Primarily in Siberia"
+            },
+            {
+              "name": "Mansi",
+              "note": "Primarily in Siberia"
+            }
+          ]
+        },
+        {
+          "name": "Permic",
+          "children": [
+            {
+              "name": "Komi"
+            },
+            {
+              "name": "Udmurt"
+            }
+          ]
+        },
+        {
+          "name": "Mari",
+          "children": [
+            {
+              "name": "Meadow Mari"
+            },
+            {
+              "name": "Hill Mari"
+            }
+          ]
+        },
+        {
+          "name": "Mordvinic",
+          "children": [
+            {
+              "name": "Erzya"
+            },
+            {
+              "name": "Moksha"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Turkic (in Europe)",
+      "proto": "Proto-Turkic",
+      "children": [
+        {
+          "name": "Oghuz",
+          "children": [
+            {
+              "name": "Turkish"
+            },
+            {
+              "name": "Azerbaijani"
+            },
+            {
+              "name": "Gagauz"
+            }
+          ]
+        },
+        {
+          "name": "Kipchak",
+          "children": [
+            {
+              "name": "Tatar"
+            },
+            {
+              "name": "Bashkir"
+            },
+            {
+              "name": "Crimean Tatar"
+            },
+            {
+              "name": "Karachay-Balkar"
+            },
+            {
+              "name": "Kumyk"
+            }
+          ]
+        },
+        {
+          "name": "Oghur",
+          "children": [
+            {
+              "name": "Chuvash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Afroasiatic (in Europe)",
+      "proto": "Proto-Afroasiatic",
+      "children": [
+        {
+          "name": "Semitic",
+          "proto": "Proto-Semitic",
+          "children": [
+            {
+              "name": "Maltese"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kartvelian (South Caucasian)",
+      "proto": "Proto-Kartvelian",
+      "children": [
+        {
+          "name": "Georgian"
+        },
+        {
+          "name": "Mingrelian"
+        },
+        {
+          "name": "Laz"
+        },
+        {
+          "name": "Svan"
+        }
+      ]
+    },
+    {
+      "name": "Northwest Caucasian",
+      "proto": "Proto-Northwest-Caucasian",
+      "children": [
+        {
+          "name": "Abkhaz"
+        },
+        {
+          "name": "Abaza"
+        },
+        {
+          "name": "Adyghe"
+        },
+        {
+          "name": "Kabardian"
+        },
+        {
+          "name": "Ubykh",
+          "status": "extinct"
+        }
+      ]
+    },
+    {
+      "name": "Northeast Caucasian (Nakh-Daghestanian)",
+      "proto": "Proto-Northeast-Caucasian",
+      "children": [
+        {
+          "name": "Chechen"
+        },
+        {
+          "name": "Ingush"
+        },
+        {
+          "name": "Avar"
+        },
+        {
+          "name": "Lezgian"
+        },
+        {
+          "name": "Tabasaran"
+        },
+        {
+          "name": "Lak"
+        },
+        {
+          "name": "Dargin"
+        },
+        {
+          "name": "Tsakhur"
+        }
+      ]
+    },
+    {
+      "name": "Basque",
+      "proto": "Language isolate (pre-Indo-European substrate)",
+      "children": [
+        {
+          "name": "Basque (Euskara)"
+        }
+      ]
+    },
+    {
+      "name": "Constructed (Auxiliary)",
+      "proto": "Designed (no proto-language)",
+      "children": [
+        {
+          "name": "Esperanto"
+        },
+        {
+          "name": "Ido"
+        },
+        {
+          "name": "Interlingua"
+        }
+      ]
+    }
+  ]
+}
