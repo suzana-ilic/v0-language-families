@@ -1,32 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Space_Grotesk, DM_Sans } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-const geist = Geist({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-geist-sans",
   weight: ["400", "500", "600", "700"],
 })
 
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
-  weight: ["400", "500", "600"],
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
-})
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
   weight: ["400", "500", "600"],
 })
 
@@ -43,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans ${geist.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${dmSans.variable}`}>
+      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
